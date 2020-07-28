@@ -16,9 +16,11 @@ background-color: ${props => props.backgroundColor};
 overflow:hidden;
 `
 const Content = styled.div`
+position: relative;
 display: flex;
 justify-content: space-between;
 transform: translateY(22vh);
+z-index:1;
 `
 
 const Arrow = styled.div`
@@ -114,7 +116,7 @@ const Landing= () => {
 
     return (
     <Page backgroundColor={backgroundState[backgroundStateIndex].color}>
-        <div>
+        <div style={{position: 'relative', zIndex:10}}>
             <Navbar colorScheme={backgroundState[backgroundStateIndex].navColorScheme}></Navbar>
         </div>
         <Content>

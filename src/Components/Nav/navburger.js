@@ -17,12 +17,14 @@ color: ${props=>props.fontColor};
 `
 
 const OpenedMenu=styled.div`
+top: 6vw;
 width: 200px;
 height: 170px;
 right: 10vw;
 position:absolute;
 background-color: ${props=>props.backgroundColor};
 font-size: 0.8em;
+z-index:1000;
 @keyframes open{
     0%{
         opacity: 0;
@@ -39,7 +41,7 @@ font-size: 0.8em;
         opacity: 0;
     }
 }
-${props=>props.active==null ? 'opacity: 0;' 
+${props=>props.active==null ? 'display:none;' 
         : props.active ? 'animation: open 0.3s ease-out forwards;' 
         : !props.active ? 'animation: close 0.3s ease-out forwards;' 
         : ''}  
