@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const ButtonPanel = styled.div`
 position: absolute;
 top: 5vw;
-left: ${props => 57.5+props.indent}vw;
+left: ${props => 55.2+props.indent}vw;
 height: auto;
 width: 10vw;
 display: block;
@@ -35,14 +35,14 @@ margin-bottom: 10px;
 `
 
 const ImgContainer = styled.div`
-width: 62.5vw;
+width: 61vw;
 height: auto;
 /* border: solid black 1px; */
 `
 
 const NoDescImg = styled.img`
 position: absolute;
-width: 65vw;
+width: 61vw;
 height: auto;
 animation: ${props=>props.isNewState ? 'slideIn 0.7s ease-out' : 'fadeAway 0.7s linear forwards'};
 @keyframes fadeAway{
@@ -70,7 +70,7 @@ animation: ${props=>props.isNewState ? 'slideIn 0.7s ease-out' : 'fadeAway 0.7s 
 const DescImg = styled.img`
 opacity:0;
 position: absolute;
-width: 65vw;
+width: 61vw;
 height: auto;
 animation: ${props=>props.isNewState ? 'appear 1s 0.7s linear forwards' : 'appear 0.5s 0.5s linear forwards'};
 

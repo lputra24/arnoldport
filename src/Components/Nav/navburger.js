@@ -24,7 +24,6 @@ right: 10vw;
 position:absolute;
 background-color: ${props=>props.backgroundColor};
 font-size: 0.8em;
-z-index:1000;
 @keyframes open{
     0%{
         opacity: 0;
@@ -76,7 +75,7 @@ margin-left: 10px;
 `
 
 const Line1=styled.div`
-background-color: ${props=>props.active ? props.linesColor : 'white'};
+background-color: ${props=>props.active ? props.linesColor : props.defaultColor};
 width: 100%;
 border-radius: 10px;
 height: 3px;
@@ -110,7 +109,7 @@ ${props=>props.active==null ? ''
 `
 
 const Line2=styled.div`
-background-color: ${props=>props.active ? props.linesColor : 'white'};
+background-color: ${props=>props.active ? props.linesColor : props.defaultColor};
 width: 100%;
 border-radius: 10px;
 height: 3px;
@@ -141,7 +140,7 @@ ${props=>props.active==null ? ''
 `
 
 const Line3=styled.div`
-background-color: ${props=>props.active ? props.linesColor : 'white'};
+background-color: ${props=>props.active ? props.linesColor : props.defaultColor};
 width: 100%;
 border-radius: 10px;
 height: 3px;
@@ -185,17 +184,18 @@ const Navburger = (props) => {
     const backgroundColor = props.colorScheme.background;
     const linesColor = props.colorScheme.line;
     const fontColor = props.colorScheme.font;
+    const defaultBurgerColor = props.colorScheme.navItem;
 
     const changeToggle = () =>{
         toggleActive(!active);
     }
 
     return(
-        <div onClick={()=>changeToggle()}>
-            <Toggle onClick={()=>console.log("clicked")}>
-                <Line1 active={active} linesColor={linesColor}></Line1>
-                <Line2 active={active} linesColor={linesColor}></Line2>
-                <Line3 active={active} linesColor={linesColor}></Line3>
+        <div>
+            <Toggle onClick={()=>changeToggle()}>
+                <Line1 defaultColor={defaultBurgerColor} active={active} linesColor={linesColor}></Line1>
+                <Line2 defaultColor={defaultBurgerColor} active={active} linesColor={linesColor}></Line2>
+                <Line3 defaultColor={defaultBurgerColor} active={active} linesColor={linesColor}></Line3>
             </Toggle>
             <OpenedMenu active={active} backgroundColor={backgroundColor}>
                 <MenuTitle fontColor={fontColor}><b>by Arnold Angelo</b></MenuTitle>

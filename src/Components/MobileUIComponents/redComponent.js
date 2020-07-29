@@ -20,12 +20,12 @@ const RedPhone = () => {
             stateName : 'RECENT',
             img : stateImg2,
             imgDesc : stateImgDesc2,
-            buttonPanelAddIndent : 7.5
+            buttonPanelAddIndent : 6.9
         },{
             stateName : 'RESULT',
             img : stateImg3,
             imgDesc : stateImgDesc3,
-            buttonPanelAddIndent : 7.5
+            buttonPanelAddIndent : 6.9
         }
     ]
 
