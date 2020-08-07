@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Navburger from './navburger.js';
+import Navburger from './Navburger.js';
 
 const NavContainer = styled.div`
 position: absolute;
@@ -17,7 +17,8 @@ padding: 50px;
 `
 
 const Logo = styled.div`
-width: 33%;
+flex: 1;
+min-width: 150px;
 padding: 10px;
 align-self: flex-start;
 color: ${props=>props.color};
@@ -26,10 +27,12 @@ border-left: #FFEDC1 solid 2px;
 `
 
 const MainNav = styled.div`
-width: 33%;
+flex: 1.2;
+min-width: 170px;
 align-self: center;
 display: flex;
 justify-content: space-between;
+/* border: solid black 1px;   */
 `
 
 const MenuItem = styled.a`
@@ -40,7 +43,7 @@ color: ${props=>props.color};
 `
 
 const NavBurgerContainer = styled.div`
-width: 33%;
+flex: 1;
 align-self: center;
 `
 

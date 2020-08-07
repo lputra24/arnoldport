@@ -5,7 +5,7 @@ const Toggle=styled.div`
 position : absolute;
 width: 25px;
 height: 20px;
-top: 7vw;
+top: 65px;
 right: 11vw;
 z-index:10;
 `
@@ -17,7 +17,7 @@ color: ${props=>props.fontColor};
 `
 
 const OpenedMenu=styled.div`
-top: 6vw;
+top: 52px;
 width: 200px;
 height: 170px;
 right: 10vw;

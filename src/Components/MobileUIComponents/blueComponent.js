@@ -3,8 +3,8 @@ import stateImg1 from '../../Resources/Portfolio DC Iteration 2/No Description/B
 import stateImgDesc1 from '../../Resources/Portfolio DC Iteration 2/With Description/Blue.png';
 import stateImg2 from '../../Resources/Portfolio DC Iteration 2/No Description/Blue 2.png';
 import stateImgDesc2 from '../../Resources/Portfolio DC Iteration 2/With Description/Blue 2.png';
-import Phone from './mobileCompPrototype.js'
-import {COLORS} from '../../Resources/constant.js';
+import Phone from './MobileCompPrototype.js'
+import {COLORS} from '../../Resources/Constant.js';
 
 
 const BluePhone = () => {

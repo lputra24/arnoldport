@@ -7,8 +7,8 @@ import stateImg3 from '../../Resources/Portfolio DC Iteration 2/No Description/Y
 import stateImgDesc3 from '../../Resources/Portfolio DC Iteration 2/With Description/Yellow 3.png';
 import stateImg4 from '../../Resources/Portfolio DC Iteration 2/No Description/Yellow 4.png';
 import stateImgDesc4 from '../../Resources/Portfolio DC Iteration 2/With Description/Yellow 4.png';
-import Phone from './mobileCompPrototype.js'
-import {COLORS} from '../../Resources/constant.js';
+import Phone from './MobileCompPrototype.js'
+import {COLORS} from '../../Resources/Constant.js';
 
 const YellowPhone = () => {
 

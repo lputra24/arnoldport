@@ -1,14 +1,16 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
-import Navbar from '../Nav/navbar.js';
-import {COLORS} from '../../Resources/constant.js';
-import BluePhone from '../MobileUIComponents/blueComponent.js'
-import YellowPhone from '../MobileUIComponents/yellowComponent.js'
-import OrangePhone from '../MobileUIComponents/orangeComponent.js'
-import RedPhone from '../MobileUIComponents/redComponent.js'
-import { ChevronRight } from 'react-bootstrap-icons';
-import { ChevronLeft } from 'react-bootstrap-icons';
+import Navbar from '../Nav/Navbar.js';
+import {COLORS} from '../../Resources/Constant.js';
+import BluePhone from '../MobileUIComponents/BlueComponent.js'
+import YellowPhone from '../MobileUIComponents/YellowComponent.js'
+import OrangePhone from '../MobileUIComponents/OrangeComponent.js'
+import RedPhone from '../MobileUIComponents/RedComponent.js'
+import {ChevronRight} from 'react-bootstrap-icons';
+import {ChevronLeft} from 'react-bootstrap-icons';
 import {Mouse2} from 'react-bootstrap-icons';
+import {useStateValue} from '../../State/StateProvider.js'
+import {ARROW} from '../../State/Action.js'
 
 const Page = styled.div`
 width: auto;
@@ -57,118 +59,40 @@ float: right;
 
 const Landing= () => {
 
-    const [backgroundStateIndex,changeBackgroundStateIndex] = useState(0);
-
-
-    const backgroundState =[    
-        {
-            name: 'Post-It Mobile App Concept',
-            color : COLORS.blue,
-            buttonActive : COLORS.blueActive,
-            buttonFont : COLORS.blueFontButton,
-            buttonFontActive : COLORS.blueFontActive,
-            fontColor : COLORS.blueFont,
-            navColorScheme: {
-                navItem : COLORS.blueFont,
-                background:COLORS.blueNavBackground,
-                line:COLORS.blueNavLine,
-                font:COLORS.blueNavFont
-            },
-            stateImg : <BluePhone/>
-        },
-        {
-            name: 'Authentic Homecooking Ordering App',
-            color : COLORS.yellow,
-            buttonActive : COLORS.yellowActive,
-            buttonFont : COLORS.yellowFontButton,
-            buttonFontActive : COLORS.yellowFontActive,
-            fontColor : COLORS.yellowFont,
-            navColorScheme: {
-                navItem : COLORS.yellowFont,
-                background:COLORS.yellowNavBackground,
-                line:COLORS.yellowNavLine,
-                font:COLORS.yellowNavFont
-            },
-            stateImg : <YellowPhone/>
-        },
-        {
-            name: 'Community & Event Finder App Concept',
-            color : COLORS.orange,
-            buttonActive : COLORS.orangeActive,
-            buttonFont : COLORS.orangeFontButton,
-            buttonFontActive : COLORS.orangeFontActive,
-            fontColor : COLORS.orangeFont,
-            navColorScheme: {
-                navItem : COLORS.orangeFont,
-                background:COLORS.orangeNavBackground,
-                line:COLORS.orangeNavLine,
-                font:COLORS.orangeNavFont
-            },
-            stateImg : <OrangePhone/>
-        },
-        {
-            name: 'Restaurant Recognition App Redesign',
-            color : COLORS.red,
-            buttonActive : COLORS.redActive,
-            buttonFont : COLORS.redFontButton,
-            buttonFontActive : COLORS.redFontActive,
-            fontColor : COLORS.redFont,
-            navColorScheme: {
-                navItem : COLORS.redFont,
-                background:COLORS.redNavBackground,
-                line:COLORS.redNavLine,
-                font:COLORS.redNavFont
-            },
-            stateImg : <RedPhone/>
-        }
-    ]
-
-
-    
+    const [stateValue, dispatch]= useStateValue();
 
     const increment =() =>{
-        if(backgroundStateIndex+1>=backgroundState.length){
-            changeBackgroundStateIndex(0)
-        }
-        else{
-            changeBackgroundStateIndex(backgroundStateIndex+1)
-        }
-        
+        dispatch({type: ARROW.RIGHT})      
     }
 
     const decrement =() => {
-        if(backgroundStateIndex<=0){
-            changeBackgroundStateIndex(backgroundState.length-1)
-        }
-        else{
-            changeBackgroundStateIndex(backgroundStateIndex-1)
-        }
+        dispatch({type: ARROW.LEFT})
     }
 
     return (
-    <Page backgroundColor={backgroundState[backgroundStateIndex].color}>
+    <Page backgroundColor={stateValue.backgroundState.color}>
         <div style={{position: 'relative', zIndex:10}}>
-            <Navbar colorScheme={backgroundState[backgroundStateIndex].navColorScheme}></Navbar>
+            <Navbar colorScheme={stateValue.backgroundState.navColorScheme}></Navbar>
         </div>
         <div style={{transform: 'translateY(24vh)'}}>
             <Content>
                 <Arrow>
-                    <ChevronLeft size={30} color={backgroundState[backgroundStateIndex].navColorScheme.navItem} onClick={decrement}></ChevronLeft>
+                    <ChevronLeft size={30} color={stateValue.backgroundState.navColorScheme.navItem} onClick={decrement}></ChevronLeft>
                 </Arrow>
-                {backgroundState[backgroundStateIndex].stateImg}
+                {stateValue.backgroundState.stateImg}
                 <Arrow>
-                    <ChevronRight size={30} color={backgroundState[backgroundStateIndex].navColorScheme.navItem} onClick={increment}></ChevronRight>
+                    <ChevronRight size={30} color={stateValue.backgroundState.navColorScheme.navItem} onClick={increment}></ChevronRight>
                 </Arrow>
             </Content>
             <LandingFoot>
-                <PageTitle style={{color: backgroundState[backgroundStateIndex].fontColor}}><b>{backgroundState[backgroundStateIndex].name}</b></PageTitle>
+                <PageTitle style={{color: stateValue.backgroundState.fontColor}}><b>{stateValue.backgroundState.name}</b></PageTitle>
                 <InstructionContainer>
                     <div style={{marginRight: '15px'}}>
-                        <p style={{fontSize: '0.7em',color: backgroundState[backgroundStateIndex].fontColor}}>Scroll down to see colors</p>
-                        <p style={{float: 'right',fontSize: '0.7em',color: backgroundState[backgroundStateIndex].fontColor}}>& fonts</p>
+                        <p style={{fontSize: '0.7em',color: stateValue.backgroundState.fontColor}}>Scroll down to see colors</p>
+                        <p style={{float: 'right',fontSize: '0.7em',color: stateValue.backgroundState.fontColor}}>& fonts</p>
                     </div>
                     
-                    <Mouse2 size={30} color={backgroundState[backgroundStateIndex].navColorScheme.navItem} onClick={decrement}></Mouse2>
+                    <Mouse2 size={30} color={stateValue.backgroundState.navColorScheme.navItem} onClick={decrement}></Mouse2>
                 </InstructionContainer>
             </LandingFoot>
         </div>
